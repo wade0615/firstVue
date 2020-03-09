@@ -6,8 +6,24 @@
     <title>First Vue</title>
 </head>
 <body>
-    <h1>HELLO</h1>
 
+    <h1>HeLLo</h1>
+    <div id="vue-app">
+        <p>{{ greet('afternoon') }}</p>
+        <p>I'm {{ name }}</p>
+        <p>My job is : {{ job }}</p>
+        <a v-bind:href="website">My website</a>  <!-- 他跟下面一行這樣寫是一樣的意思 -->
+        <a :href="website">My website</a>
+
+        <input type="text" v-bind:value='country'>
+
+        <p v-html='websiteTag'></p>
+    </div>
+
+
+    <!-- 引入Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- 引入自己的JS -->
     <script src="./firstVue.js"></script>
 </body>
 </html>
