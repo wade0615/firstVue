@@ -6,7 +6,20 @@
     <title>First Vue 2</title>
 </head>
 <body>
-    <!-- 影片 #5~#10 -->
+    <!-- 影片 #6~#10 -->
+
+    <div id="vue-app">
+        <p>This year is {{ year }}</p>
+        <button v-on:click.once='add(1)'>Add a year</button>  <!-- .once讓事件只會觸發一次 -->
+        <button @click='subtract(1)'>Substract a year</button>
+
+
+        <h1>KeyBoard Events</h1>
+        <label>Name:</label>
+        <input type="text" v-on:keyup.enter='logName'>
+        <label>Age:</label>
+        <input type="text" v-on:keyup.alt.enter="logAge">
+    </div>
 
     <!-- 引入Vue -->
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
