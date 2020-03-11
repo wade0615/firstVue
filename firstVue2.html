@@ -26,7 +26,7 @@
         <span>{{ name }}</span>
         <span>{{ age }}</span>
 
-        <h2>Computed Properties</h2>
+        <h2>#9 Computed Properties</h2>
         <button v-on:click="a++">Add to A</button>
         <button @click="b++">Add to B</button>
         <p>A - {{ a }}</p>
@@ -35,7 +35,39 @@
         <!-- <p>Age + B = {{ addToB() }}</p> -->
         <p>Age + A = {{ addToA }}</p>
         <p>Age + B = {{ addToB }}</p>
+
+        <div id="vedio10">
+            <h2>#10 Dynamic CSS Classes</h2>
+            <h3>Ex1</h3>
+            <!-- <div v-bind:class="{red: true, blue: true}"></div> -->
+            <div @click='available = !available' v-bind:class="{available: available}">
+                <span>Ryan</span>
+            </div>
+            <h3>Ex2</h3>
+            <button @click='available2 = !available2'>Toggle available</button>
+            <button @click='nearby = !nearby'>Toggle nearby</button>
+            <div v-bind:class='compClass'>
+                <span>Ryan2</span>
+            </div>
+        </div>
     </div>
+
+    <style>
+        #vedio10 span {
+            background: red;
+            display: inline-block;
+            padding: 10px;
+            color: #fff;
+            margin: 10px 0;
+        }
+        #vedio10 .available span, #vedio10 .available2 span {
+            background: green;
+        }
+        #vedio10 .nearby span::after {
+            content: 'nearby';
+            margin-left: 10px;
+        }
+    </style>
 
     <!-- 引入Vue -->
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>

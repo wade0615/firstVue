@@ -5,7 +5,10 @@ new Vue({
         name: '',
         age: '',
         a: 0,
-        b: 0
+        b: 0,
+        available: true,
+        available2: false,
+        nearby: false
     },
     methods: {
         add: function(inc){
@@ -37,6 +40,12 @@ new Vue({
         addToB: function() {
             console.log('addToB');
             return this.year + this.b;
+        },
+        compClass: function(){
+            return {
+                available2: this.available2,
+                nearby: this.nearby
+            }
         }
     }
 })
