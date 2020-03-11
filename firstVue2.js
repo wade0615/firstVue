@@ -1,7 +1,9 @@
 new Vue({
     el: '#vue-app',
     data: {
-        year: 2020
+        year: 2020,
+        name: '',
+        age: ''
     },
     methods: {
         add: function(inc){

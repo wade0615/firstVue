@@ -14,11 +14,17 @@
         <button @click='subtract(1)'>Substract a year</button>
 
 
-        <h1>KeyBoard Events</h1>
+        <h1>KeyBoard Events(Look at console)</h1>
         <label>Name:</label>
         <input type="text" v-on:keyup.enter='logName'>
         <label>Age:</label>
         <input type="text" v-on:keyup.alt.enter="logAge">
+
+        <h2>V-model</h2>
+        <input type="text" v-model='name'>
+        <input type="text" v-model="age"> <br>
+        <span>{{ name }}</span>
+        <span>{{ age }}</span>
     </div>
 
     <!-- 引入Vue -->
