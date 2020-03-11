@@ -9,6 +9,7 @@
     <!-- 影片 #11~#15 -->
     <div id="vue-app">
         <h1>影片 #11~#15</h1>
+
         <h2>#11 Conditionals</h2>
         <button @click='error = !error'>Toggle error</button>
         <button @click='success = !success'>Toggle success</button>
@@ -18,6 +19,29 @@
         <!-- 這個會將p直接 display: none -->
         <p v-show='error'>v-show error.</p>
         <p v-show='success'>v-show success.</p>
+
+        <h2>#12 Looping with v-for</h2>
+        <ul>
+            <li v-for='character in characters'>{{ character }}</li>
+        </ul>
+        <ul>
+            <li v-for='(ninja, index) in ninjas'>{{ index + 1 }} {{ ninja.name }}, {{ ninja.age }}</li>
+        </ul>
+        <!-- 這樣會有 <div></div> -->
+        <!-- <div v-for='(ninja, index) in ninjas'>
+            <h3>{{ index + 1 }} . {{ ninja.name }}</h3>
+            <p>{{ ninja.age }}</p>
+        </div> -->
+        <!-- 這樣就只剩 <h3></h3> 跟 <p></p> 了 -->
+        <!-- <template v-for='(ninja, index) in ninjas'>
+            <h3>{{ index + 1 }} . {{ ninja.name }}</h3>
+            <p>{{ ninja.age }}</p>
+        </template> -->
+        <template v-for='ninja in ninjas'>
+            <div v-for='(val,key) in ninja'>
+                <p>{{ key }} - {{ val }}</p>
+            </div>
+        </template>
     </div>
 
     <!-- 引入Vue -->
