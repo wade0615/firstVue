@@ -3,7 +3,9 @@ new Vue({
     data: {
         year: 2020,
         name: '',
-        age: ''
+        age: '',
+        a: 0,
+        b: 0
     },
     methods: {
         add: function(inc){
@@ -17,6 +19,24 @@ new Vue({
         },
         logAge: function() {
             console.log('age');
+        },
+        // addToA: function() {
+        //     console.log('addToA');
+        //     return this.year + this.a;
+        // },
+        // addToB: function() {
+        //     console.log('addToB');
+        //     return this.year + this.b;
+        // }
+    },
+    computed: {
+        addToA: function() {
+            console.log('addToA');
+            return this.year + this.a;
+        },
+        addToB: function() {
+            console.log('addToB');
+            return this.year + this.b;
         }
     }
 })
