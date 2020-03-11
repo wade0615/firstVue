@@ -45,11 +45,9 @@
 
         <h2>#13 Simple Punchbag Game</h2>
         <div id="bag" v-bind:class='{burst: ended}'></div>
-
         <div id="bag-health">
             <div v-bind:style='{width: health + "%"}'></div>
         </div>
-
         <div id="controls">
             <button @click='punch' v-show='!ended'>Punch</button>
             <button @click='restart'>Restart</button>
