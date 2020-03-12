@@ -63,6 +63,35 @@ var two = new Vue({
 const outsideTheInstances = document.querySelector('#outsideTheInstances');
 outsideTheInstances.addEventListener('click', function(){
     two.title = 'This title is change from outside the Vue Instances'
+});
+// two.title = 'This title is change from outside the Vue Instances'
+
+// #15 Intro to Components
+
+Vue.component('greeting', {
+    template: "<p>I'm from the re-usable component,{{ name }}<button @click='changeName'>Change Name</button></p>",
+    data: function() {
+        return {
+            name: 'Yoshi'
+        }
+    },
+    methods: {
+        changeName: function() {
+            this.name = 'Mario'
+        }
+    }
 })
 
-// two.title = 'This title is change from outside the Vue Instances'
+var three = new Vue({
+    el: '#vue-app-three',
+    data: {
+        title: 'Vue Instances 3'
+    }
+});
+
+var four = new Vue({
+    el: '#vue-app-four',
+    data: {
+        title: 'Vue Instances 4'
+    }
+});
