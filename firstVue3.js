@@ -27,3 +27,42 @@ new Vue({
 
     }
 })
+
+var one = new Vue({
+    el: '#vue-app-one',
+    data: {
+        title: 'Vue Instances 1'
+    },
+    methods: {
+
+    },
+    computed: {
+        greet: function() {
+            return 'Hello from app 1'
+        }
+    }
+});
+
+var two = new Vue({
+    el: '#vue-app-two',
+    data: {
+        title: 'Vue Instances 2'
+    },
+    methods: {
+        changeTitle: function() {
+            one.title = 'This title is change from vue-app-two.'
+            }
+    },
+    computed: {
+        greet: function() {
+            return 'This is app 2 speaking!'
+        }
+    }
+});
+
+const outsideTheInstances = document.querySelector('#outsideTheInstances');
+outsideTheInstances.addEventListener('click', function(){
+    two.title = 'This title is change from outside the Vue Instances'
+})
+
+// two.title = 'This title is change from outside the Vue Instances'

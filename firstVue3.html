@@ -54,6 +54,21 @@
         </div>
     </div>
 
+    <div>
+        <h2>#14 Multiple Vue Instances</h2>
+        <div id="vue-app-one">
+            <h3>{{ title }}</h3>
+            <p>{{ greet }}</p>
+        </div>
+        <div id="vue-app-two">
+            <h3>{{ title }}</h3>
+            <p>{{ greet }}</p>
+            <button @click='changeTitle'>Change Vue Instances 1's title</button>
+        </div>
+        <button id="outsideTheInstances">Change Vue Instances 2's title</button>
+    </div>
+    
+
     <style>
         #bag {
             width: 200px;
