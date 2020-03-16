@@ -4,7 +4,20 @@ var app = new Vue({
         product: 'Socks',
         image: './img/greenSocks.png',
         inventory: 8,
-        instock: true
+        instock: true,
+        details: [
+            "80% cotton", "20% poyester", "Gender-neutral"
+        ],
+        variants: [
+            {
+                variantID: 2234,
+                variantColor: 'green'
+            },
+            {
+                variantID: 2235,
+                variantColor: 'blue'
+            }
+        ]
     },
     methods: {
 
