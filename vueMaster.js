@@ -1,4 +1,10 @@
 Vue.component('product', {
+    props: {
+        premium: {
+            type: Boolean,
+            required: true
+        }
+    },
     template: `
     <div class="product">
         <div class="product-image">
@@ -10,6 +16,7 @@ Vue.component('product', {
             <p v-if='instock >= 10'>In stock</p>
             <p v-else-if='instock < 10 && instock > 0'>Almost sold out!</p>
             <p v-else>Out of stock</p>
+            <p>Shipping: {{ shipping }}</p>
 
             <ul>
                 <li v-for='detail in details'>{{ detail }}</li>
@@ -73,55 +80,19 @@ Vue.component('product', {
         },
         instock(){
             return this.variants[this.selectedVariant].variantQuantity;
+        },
+        shipping(){
+            if(this.premium){
+                return 'Free'
+            }
+            return '2.99'
         }
     }
 });
 
 var app = new Vue({
     el: '#app',
-    // data: {
-    //     brand:'Veu Mastory',
-    //     product: 'Socks',
-    //     selectedVariant: 0,
-    //     // inventory: 8,
-    //     // instock: false,
-    //     details: [
-    //         "80% cotton", "20% poyester", "Gender-neutral"
-    //     ],
-    //     variants: [
-    //         {
-    //             variantID: 2234,
-    //             variantColor: 'green',
-    //             variantImage: './img/greenSocks.png',
-    //             variantQuantity: 10
-    //         },
-    //         {
-    //             variantID: 2235,
-    //             variantColor: 'blue',
-    //             variantImage: './img/blueSocks.png',
-    //             variantQuantity: 0
-    //         }
-    //     ],
-    //     cart: 0
-    // },
-    // methods: {
-    //     addToCart: function(){
-    //         this.cart += 1;
-    //     },
-    //     updateProduct: function(index){
-    //         this.selectedVariant = index
-    //         // console.log(index);            
-    //     }
-    // },
-    // computed: {
-    //     title(){
-    //         return this.brand + ' ' + this.product
-    //     },
-    //     image(){
-    //         return this.variants[this.selectedVariant].variantImage;
-    //     },
-    //     instock(){
-    //         return this.variants[this.selectedVariant].variantQuantity;
-    //     }
-    // }
+    data: {
+        premium: true
+    }
 })
