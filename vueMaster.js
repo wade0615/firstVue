@@ -1,6 +1,7 @@
 var app = new Vue({
     el: '#app',
     data: {
+        brand:'Veu Mastory',
         product: 'Socks',
         image: './img/greenSocks.png',
         inventory: 8,
@@ -31,6 +32,8 @@ var app = new Vue({
         }
     },
     computed: {
-
+        title(){
+            return this.brand + ' ' + this.product
+        }
     }
 })
