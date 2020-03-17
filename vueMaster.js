@@ -3,9 +3,9 @@ var app = new Vue({
     data: {
         brand:'Veu Mastory',
         product: 'Socks',
-        image: './img/greenSocks.png',
-        inventory: 8,
-        instock: false,
+        selectedVariant: 0,
+        // inventory: 8,
+        // instock: false,
         details: [
             "80% cotton", "20% poyester", "Gender-neutral"
         ],
@@ -13,12 +13,14 @@ var app = new Vue({
             {
                 variantID: 2234,
                 variantColor: 'green',
-                variantImage: './img/greenSocks.png'
+                variantImage: './img/greenSocks.png',
+                variantQuantity: 10
             },
             {
                 variantID: 2235,
                 variantColor: 'blue',
-                variantImage: './img/blueSocks.png'
+                variantImage: './img/blueSocks.png',
+                variantQuantity: 0
             }
         ],
         cart: 0
@@ -27,13 +29,20 @@ var app = new Vue({
         addToCart: function(){
             this.cart += 1;
         },
-        updateProduct: function(variantImage){
-            this.image = variantImage
+        updateProduct: function(index){
+            this.selectedVariant = index
+            // console.log(index);            
         }
     },
     computed: {
         title(){
             return this.brand + ' ' + this.product
+        },
+        image(){
+            return this.variants[this.selectedVariant].variantImage;
+        },
+        instock(){
+            return this.variants[this.selectedVariant].variantQuantity;
         }
     }
 })
